@@ -36,7 +36,7 @@ $D$: {\small David Hogg has had more than 500 mg of caffeine today.}
 
 \begin{frame}[t]{Propositions}
 Propositions can be {\it combined} to make others, using the operators
-{\bf and}, {\bf or}, and {\bf not}: \vspace{20pt}
+{\bf and} ($\wedge$), {\bf or} ($\vee$), and {\bf not} ($\neg$): \vspace{20pt}
 
 $A \wedge B$\\
 $C \vee A$\\
@@ -71,14 +71,17 @@ Where'd the RHS go? $|| D$
 Some properties of plausibility:\vspace{20pt}
 
 $P(A \vee B) \geq P(A)$\\
-%$P(A \wedge B) \leq P(A)$\\
+$P(A \wedge B) \leq P(A)$\\
 $P(A \vee (B \vee C)) = P((A \vee B) \vee C)$\vspace{20pt}
 
-These imply the {\bf sum rule}.
+These imply the {\bf sum rule} and the {\bf product rule}, and hence that
+{\bf plausibilities are probabilities}.
 \end{frame}
 
-\begin{frame}[t]{Sum rule}
-$P(A \vee B) = P(A) + P(B) - P(A \wedge B)$
+\begin{frame}[t]{Sum and product rule\hspace{170pt}$|| C$}
+$P(A \vee B) = P(A) + P(B) - P(A \wedge B)$\\
+\vspace{20pt}
+$P(A \wedge B) = P(A)P(B|A)$
 \end{frame}
 
 \end{document}
