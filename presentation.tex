@@ -61,10 +61,25 @@ Read the ``$|$'' as ``{\bf given}'' or ``{\bf conditional on}''.
 Some properties of plausibility:\vspace{20pt}
 
 $P(A \vee B) \geq P(A)$\\
-$P(A \wedge B) \leq P(A)$\vspace{20pt}
+%$P(A \wedge B) \leq P(A)$\\
+$P(A \vee (B \vee C)) = P((A \vee B) \vee C)$\vspace{20pt}
 
-
-Where'd the RHS go? $|| C$
+Where'd the RHS go? $|| D$
 \end{frame}
+
+\begin{frame}[t]{Constraints on plausibility}
+Some properties of plausibility:\vspace{20pt}
+
+$P(A \vee B) \geq P(A)$\\
+%$P(A \wedge B) \leq P(A)$\\
+$P(A \vee (B \vee C)) = P((A \vee B) \vee C)$\vspace{20pt}
+
+These imply the {\bf sum rule}.
+\end{frame}
+
+\begin{frame}[t]{Sum rule}
+$P(A \vee B) = P(A) + P(B) - P(A \wedge B)$
+\end{frame}
+
 \end{document}
 
