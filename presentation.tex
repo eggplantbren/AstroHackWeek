@@ -104,9 +104,6 @@ P(H | D) = \frac{P(H)P(D|H)}{P(D)}
 \end{equation}
 \end{frame}
 
-\begin{frame}[t]{Exercises!\hspace{170pt}$|| I$}
-\end{frame}
-
 \begin{frame}[t]{Another Bayes' Rule\hspace{170pt}$|| I$}
 For $N$ mutually exclusive, exhaustive hypotheses
 $H_1, H_2, ..., H_N$, we have $N$ posterior probabilities:
@@ -119,8 +116,55 @@ where
 \begin{equation}
 P(D) = \sum_{i=1}^N P(H_i)P(D|H_i)
 \end{equation}
-
 \end{frame}
+
+\begin{frame}[t]{Another Bayes' Rule\hspace{170pt}$|| I$}
+
+{\bf This is the most important form of Bayes' rule.}
+
+\begin{equation}
+P(H_i | D) = \frac{P(H_i)P(D|H_i)}{P(D)}
+\end{equation}
+
+where
+\begin{equation}
+P(D) = \sum_{i=1}^N P(H_i)P(D|H_i)
+\end{equation}
+\end{frame}
+
+
+\begin{frame}[t]{Exercises!\hspace{170pt}$|| I$}
+\end{frame}
+
+\begin{frame}[t]{Parameter estimation}
+In most applications, we can use the ``parameter estimation'' story. E.g.
+Let $\theta$ be a quantity we want to know. Then the hypotheses might be:
+
+\begin{eqnarray}
+H_1 &\equiv& \theta = 5\\
+H_2 &\equiv& \theta = 6\\
+H_3 &\equiv& \theta = 7
+\end{eqnarray}
+
+The data could also be a number. E.g. the conditioning proposition could be
+\begin{equation}
+D = 4
+\end{equation}
+
+The previous version of Bayes' rule can be applied to each of the.
+\end{frame}
+
+\begin{frame}[t]{Parameter estimation}
+Define the prior distribution $p(\theta)$
+
+
+\begin{equation}
+p(\theta | D) \propto p(\theta)p(D|\theta)
+\end{equation}
+
+This notation hides {\bf a lot}!
+\end{frame}
+
 
 
 \end{document}
