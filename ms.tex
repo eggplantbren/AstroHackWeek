@@ -20,6 +20,8 @@ for Astro Hack Week 2015}
 
 \section{Bayesian Inference}
 
+
+\subsection{Bayes' Rule}
 From the single-hypothesis version of Bayes' rule:
 \begin{eqnarray}
 P(H|D) &=& \frac{P(H)P(D|H)}{P(D)}
@@ -27,11 +29,22 @@ P(H|D) &=& \frac{P(H)P(D|H)}{P(D)}
 prove the version commonly used for a set of mutually exclusive and exhaustive
 hypotheses $\{H_1, H_2, ..., H_N\}$:
 \begin{eqnarray}
-P(H_i|D) &=& \frac{P(H_i)P(D|H_i)}{P(D)}
+P(H_i|D) &=& \frac{P(H_i)P(D|H_i)}{P(D)}\label{eq:bayes}
 \end{eqnarray}
+for all $i \in \{1, 2, ..., N\}$.
 
+\subsection{Discrete parameter estimation}
+You are a customs agent. Among other things, you are supposed to prevent
+drugs being smuggled in packages sent into the country. A colleague finds a
+package containing two toys. Let the number of toys containing drugs be
+$\eta$. Clearly the value of $\eta$ is either 0, 1, or 2. You drill into
+one of the toys and find that it does not have drugs.
+Calculate the posterior distribution for $\eta$ given that the tested
+toy did not contain drugs. Assume a (discrete) uniform prior, i.e.
+$P(\eta=0) = P(\eta=1) = P(\eta=2) = 1/3$.
 
-
+{\tiny Hint: Use Bayes' rule in the form of Equation~\ref{eq:bayes}
+three times, and note they all have the same denominator.}
 
 \end{document}
 
