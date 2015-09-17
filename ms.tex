@@ -46,5 +46,16 @@ $P(\eta=0) = P(\eta=1) = P(\eta=2) = 1/3$.
 {\tiny Hint: Use Bayes' rule in the form of Equation~\ref{eq:bayes}
 three times, and note they all have the same denominator.}
 
+\subsection{Continuous parameter estimation}
+An X-ray source emits photons at a steady rate, but since it's so distant, we
+only pick up a few photons per second.
+A standard probabilistic model for the arrival times of the photons is the
+``Poisson process''. A specific prediction of this model is that, if the
+expected number of photons in a given one second interval
+is $\lambda$, the (discrete) probability distribution for the actual number of photons in that interval is a Poisson distribution:
+\begin{eqnarray}
+p(x | \lambda) &=& \frac{\lambda^x e^{-\lambda}}{x!}
+\end{eqnarray}
+
 \end{document}
 
