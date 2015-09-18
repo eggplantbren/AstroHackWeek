@@ -166,6 +166,190 @@ This notation hides {\bf a lot}!
 \end{frame}
 
 
+\begin{frame}[t]{Ingredients I}
+Bayesian inference need the following inputs:
+
+\begin{itemize}
+\setlength{\itemsep}{20pt}
+\item A {\bf hypothesis space} describing the set of possible answers to our
+question (``parameter space'' in fitting is the same concept).
+\item A {\bf prior distribution} $p(\theta)$ describing how plausible
+each of the possible solutions is, not taking into account the data.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Ingredients II}
+Bayesian inference need the following inputs:
+\begin{itemize}
+\item A {\bf sampling distribution} $p(D | \theta)$ describing our knowledge
+about the connection between the parameters and the data.
+\end{itemize}
+
+When $D$ is known,
+this is a function of $\theta$ called the {\bf likelihood}.
+\end{frame}
+
+
+\begin{frame}[t]{The Posterior Distribution}
+The data helps us by changing our prior distribution to the {\bf posterior
+distribution}, given by
+\begin{eqnarray*}
+p(\theta | D) &=& \frac{p(\theta) p(D|\theta)}{p(D)}
+\end{eqnarray*}
+where the denominator is the normalisation constant, usually called either
+the {\bf marginal likelihood} or the {\bf evidence}.
+\begin{eqnarray*}
+p(D) &=& \int p(\theta)p(D|\theta) \, d\theta.
+\end{eqnarray*}
+
+\end{frame}
+
+\begin{frame}[t]{Posterior Distribution vs. Maximum Likelihood}
+The practical difference between these two concepts is greater in higher
+dimensional problems.
+\begin{center}
+\includegraphics[scale=0.35]{bayes.pdf}
+\end{center}
+\end{frame}
+
+
+
+
+\begin{frame}[t]{Updating Probabilities: Example}
+\begin{center}
+\includegraphics[scale=0.5]{ebola.jpg}
+\end{center}
+A patient goes to the doctor because he as a fever. Define
+\begin{center}
+\begin{tabular}{ll}
+$H \equiv $ & ``The patient has Ebola''\\
+$\bar{H} \equiv $ & ``The patient does not have Ebola''.
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\begin{frame}[t]{Updating Probabilities: Example}
+Based on all of her knowledge, the doctor assigns probabilities to the two
+hypotheses.
+\begin{eqnarray*}
+P(H) &=& 0.01\\
+P(\bar{H}) &=& 0.99
+\end{eqnarray*}
+
+But she wants to test the patient to make sure.
+\end{frame}
+
+
+
+\begin{frame}[t]{Updating Probabilities: Example}
+The patient is tested. Define
+
+\begin{center}
+\begin{tabular}{ll}
+$D \equiv $ & ``The {\bf test says} the patient has Ebola''\\
+$\bar{D} \equiv $ & ``The {\bf test says} the patient does not have Ebola''.
+\end{tabular}
+\end{center}
+
+If the test were perfect, we'd have $P(D | H) = 1$, $P(\bar{D} | H) = 0$,
+$P(D | \bar{H}) = 0$, and $P(\bar{D} | \bar{H}) = 1$.
+\end{frame}
+
+
+\begin{frame}[t]{Updating Probabilities: Example}
+The Ebola test isn't perfect. Suppose there's a 5\% probability it simply gives
+the wrong answer. Then we have:
+
+\begin{eqnarray*}
+P(D | H)   &=& 0.95\\
+P(\bar{D} | H) &=& 0.05\\
+P(D | \bar{H})   &=& 0.05\\
+P(\bar{D} | \bar{H}) &=& 0.95
+\end{eqnarray*}
+
+\end{frame}
+
+\begin{frame}[t]{Updating Probabilities: Example}
+Overall, there are four possibilities, considering whether the patient has
+Ebola or not, and what the test says.
+
+\begin{center}
+$(H, D)$\\
+$(\bar{H}, D)$\\
+$(H, \bar{D})$\\
+$(\bar{H}, \bar{D})$
+\end{center}
+
+
+\end{frame}
+
+\begin{frame}[t]{Updating Probabilities: Example}
+The probabilities for these four possibilities can be found using the product
+rule.
+\begin{eqnarray*}
+P(H, D) &=& 0.01 \times 0.95\\
+P(\bar{H}, D) &=& 0.99 \times 0.05\\
+P(H, \bar{D}) &=& 0.01 \times 0.05\\
+P(\bar{H}, \bar{D}) &=& 0.99 \times 0.95\\
+\end{eqnarray*}
+\vspace{-45pt}
+
+These four possibilities are {\bf mutually exclusive} (only one of them is true)
+and exhaustive (it's not ``something else''), so the probabilities add up to 1.
+
+\end{frame}
+
+\begin{frame}[t]{Updating Probabilities: Example}
+The test results come back and say that the patient has Ebola. That is, we've
+learned that $D$ is true. So we can confidently rule out those possibilities
+where $D$ is false:
+
+\begin{eqnarray*}
+P(H, D) &=& 0.01 \times 0.95\\
+P(\bar{H}, D) &=& 0.99 \times 0.05\\
+{\color{red} P(H, \bar{D})} &=& {\color{red} 0.01 \times 0.05}\\
+{\color{red} P(\bar{H}, \bar{D})} &=& {\color{red} 0.99 \times 0.95}\\
+\end{eqnarray*}
+
+
+\end{frame}
+
+
+\begin{frame}[t]{Updating Probabilities: Example}
+We are left with these two possibilities.
+
+\begin{eqnarray*}
+P(H, D) &=& 0.01 \times 0.95\\
+P(\bar{H}, D) &=& 0.99 \times 0.05
+\end{eqnarray*}
+
+It would be strange to modify these probabilities just because we deleted the
+other two. The only thing we have to do is renormalise them, by dividing by the total, so they sum to 1 again.
+\end{frame}
+
+\begin{frame}[t]{Updating Probabilities: Example}
+Normalising, we get
+
+\begin{eqnarray*}
+P(H | D) &=& (0.01 \times 0.95)/(0.01 \times 0.95 + 0.99\times0.05) = 0.161\\
+P(\bar{H} | D) &=& (0.99 \times 0.05)/(0.01 \times 0.95 + 0.99\times0.05) = 0.839
+\end{eqnarray*}
+\end{frame}
+
+\begin{frame}[t]{Moral}
+Bayesian updating is completely equivalent to:
+\begin{itemize}
+\item Writing a list of possible answers to your question
+\item Giving a probability to each
+\item Deleting the ones that you discover are false.
+\end{itemize}
+
+It just seems more complicated than this because we often apply it to more
+complex sets of hypotheses.
+\end{frame}
+
+
 
 \end{document}
 
