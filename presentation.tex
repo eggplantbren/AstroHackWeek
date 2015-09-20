@@ -223,7 +223,7 @@ A patient goes to the doctor because he as a fever. Define
 \begin{center}
 \begin{tabular}{ll}
 $H \equiv $ & ``The patient has Ebola''\\
-$\bar{H} \equiv $ & ``The patient does not have Ebola''.
+$\neg H \equiv $ & ``The patient does not have Ebola''.
 \end{tabular}
 \end{center}
 
@@ -234,7 +234,7 @@ Based on all of her knowledge, the doctor assigns probabilities to the two
 hypotheses.
 \begin{eqnarray*}
 P(H) &=& 0.01\\
-P(\bar{H}) &=& 0.99
+P(\neg H) &=& 0.99
 \end{eqnarray*}
 
 But she wants to test the patient to make sure.
@@ -248,12 +248,12 @@ The patient is tested. Define
 \begin{center}
 \begin{tabular}{ll}
 $D \equiv $ & ``The {\bf test says} the patient has Ebola''\\
-$\bar{D} \equiv $ & ``The {\bf test says} the patient does not have Ebola''.
+$\neg D \equiv $ & ``The {\bf test says} the patient does not have Ebola''.
 \end{tabular}
 \end{center}
 
-If the test were perfect, we'd have $P(D | H) = 1$, $P(\bar{D} | H) = 0$,
-$P(D | \bar{H}) = 0$, and $P(\bar{D} | \bar{H}) = 1$.
+If the test were perfect, we'd have $P(D | H) = 1$, $P(\neg D | H) = 0$,
+$P(D | \neg H) = 0$, and $P(\neg D | \neg H) = 1$.
 \end{frame}
 
 
@@ -263,9 +263,9 @@ the wrong answer. Then we have:
 
 \begin{eqnarray*}
 P(D | H)   &=& 0.95\\
-P(\bar{D} | H) &=& 0.05\\
-P(D | \bar{H})   &=& 0.05\\
-P(\bar{D} | \bar{H}) &=& 0.95
+P(\neg D | H) &=& 0.05\\
+P(D | \neg H)   &=& 0.05\\
+P(\neg D | \neg H) &=& 0.95
 \end{eqnarray*}
 
 \end{frame}
@@ -276,9 +276,9 @@ Ebola or not, and what the test says.
 
 \begin{center}
 $(H, D)$\\
-$(\bar{H}, D)$\\
-$(H, \bar{D})$\\
-$(\bar{H}, \bar{D})$
+$(\neg H, D)$\\
+$(H, \neg D)$\\
+$(\neg H, \neg D)$
 \end{center}
 
 
@@ -289,9 +289,9 @@ The probabilities for these four possibilities can be found using the product
 rule.
 \begin{eqnarray*}
 P(H, D) &=& 0.01 \times 0.95\\
-P(\bar{H}, D) &=& 0.99 \times 0.05\\
-P(H, \bar{D}) &=& 0.01 \times 0.05\\
-P(\bar{H}, \bar{D}) &=& 0.99 \times 0.95\\
+P(\neg H, D) &=& 0.99 \times 0.05\\
+P(H, \neg D) &=& 0.01 \times 0.05\\
+P(\neg H, \neg D) &=& 0.99 \times 0.95\\
 \end{eqnarray*}
 \vspace{-45pt}
 
@@ -307,9 +307,9 @@ where $D$ is false:
 
 \begin{eqnarray*}
 P(H, D) &=& 0.01 \times 0.95\\
-P(\bar{H}, D) &=& 0.99 \times 0.05\\
-{\color{red} P(H, \bar{D})} &=& {\color{red} 0.01 \times 0.05}\\
-{\color{red} P(\bar{H}, \bar{D})} &=& {\color{red} 0.99 \times 0.95}\\
+P(\neg H, D) &=& 0.99 \times 0.05\\
+{\color{red} P(H, \neg D)} &=& {\color{red} 0.01 \times 0.05}\\
+{\color{red} P(\neg H, \neg D)} &=& {\color{red} 0.99 \times 0.95}\\
 \end{eqnarray*}
 
 
@@ -321,7 +321,7 @@ We are left with these two possibilities.
 
 \begin{eqnarray*}
 P(H, D) &=& 0.01 \times 0.95\\
-P(\bar{H}, D) &=& 0.99 \times 0.05
+P(\neg H, D) &=& 0.99 \times 0.05
 \end{eqnarray*}
 
 It would be strange to modify these probabilities just because we deleted the
@@ -333,7 +333,7 @@ Normalising, we get
 
 \begin{eqnarray*}
 P(H | D) &=& (0.01 \times 0.95)/(0.01 \times 0.95 + 0.99\times0.05) = 0.161\\
-P(\bar{H} | D) &=& (0.99 \times 0.05)/(0.01 \times 0.95 + 0.99\times0.05) = 0.839
+P(\neg H | D) &=& (0.99 \times 0.05)/(0.01 \times 0.95 + 0.99\times0.05) = 0.839
 \end{eqnarray*}
 \end{frame}
 
