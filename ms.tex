@@ -51,11 +51,12 @@ An X-ray source emits photons at a steady rate, but since it's so distant, we
 only pick up a few photons per second.
 A standard probabilistic model for the arrival times of the photons is the
 ``Poisson process''. A specific prediction of this model is that, if the
-expected number of photons in a given one second interval
-is $\lambda$, the (discrete) probability distribution for the actual number of photons in that interval is a Poisson distribution:
+expected number of photons in a time interval
+is $\mu$, the (discrete) probability distribution for the actual number of photons $x$ in that interval is a Poisson distribution:
 \begin{eqnarray}
-p(x | \lambda) &=& \frac{\lambda^x e^{-\lambda}}{x!}
+p(x | \mu) &=& \frac{\mu^x e^{-\mu}}{x!}
 \end{eqnarray}
-
+Find and plot the posterior distribution for $\mu$ given $x=5$. Use an improper
+log-uniform prior proportional to $\mu^{-1}$.
 \end{document}
 
